@@ -9,8 +9,10 @@ values ={
     "ie" : "utf8",
     "query" : "초콜릿"
 }
+params = urllib.parse.urlencode(values)
+url = api + "?" +params
 
-urllib.parse.urlencode(values)
+data = urllib.request.urlopen(url).read()
+text = data.decode("utf-8") # euc-kr
+print(text)
 
-print(api)
-print(values)
